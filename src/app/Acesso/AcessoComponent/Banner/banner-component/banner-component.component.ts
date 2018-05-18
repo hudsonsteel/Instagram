@@ -28,7 +28,7 @@ export class BannerComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.imagens)
+    // console.log(this.imagens)
     setTimeout(() => this.logicaRotacao(), 3000);
   }
 
@@ -42,7 +42,7 @@ export class BannerComponentComponent implements OnInit {
         break
       }
     }
-    console.log(this.imagens[idx])
+    // console.log(this.imagens[idx])
     this.imagens[idx].estado = 'visivel'
     setTimeout(() => this.logicaRotacao(), 3000);
   }

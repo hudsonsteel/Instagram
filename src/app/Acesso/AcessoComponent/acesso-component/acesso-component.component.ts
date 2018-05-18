@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-acesso-component',
@@ -25,11 +26,15 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class AcessoComponentComponent implements OnInit {
   public estadoBanner: string = 'criado'
   public estadoPainel: string = 'criado'
-  public cadastro: boolean = false
+  public cadastro: boolean = true
   
   constructor() { }
 
   ngOnInit() {
+    console.log(this.cadastro)
   }
 
+  public exibirCadastro(event: boolean): void{
+console.log(event)
+  }
 }
