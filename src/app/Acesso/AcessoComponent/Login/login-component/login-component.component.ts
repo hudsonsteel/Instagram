@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class LoginComponentComponent implements OnInit {
 
 
-  @Output() public exibirPainel: EventEmitter<string> = new EventEmitter<string>();
+  @Output()  exibirPainel: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -20,9 +20,7 @@ export class LoginComponentComponent implements OnInit {
    * name
 :void     */
   public exibirPainelCadastro(): void {
-    this.exibirPainel.emit('true')
-    // console.log('LoginComponentComponent - Cadastrar', this.cadastro)
-
+    console.log('exibirPainelCadastro')
+    this.exibirPainel.emit(true)
   }
-
 }
