@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-login-component',
@@ -8,7 +9,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class LoginComponentComponent implements OnInit {
 
 
-  @Output()  exibirPainel: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() exibirPainel: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  public formulario: FormGroup = new FormGroup({
+    'email': new FormControl(null),
+    'senha': new FormControl(null)
+  })
 
   constructor() { }
 
@@ -20,7 +26,6 @@ export class LoginComponentComponent implements OnInit {
    * name
 :void     */
   public exibirPainelCadastro(): void {
-    console.log('exibirPainelCadastro')
     this.exibirPainel.emit(true)
   }
 }
