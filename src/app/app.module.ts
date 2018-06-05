@@ -1,28 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'
-import { Autenticacao} from './Acesso/AcessoComponent/Shared/autenticacao.service'
+import { Autenticacao } from './Acesso/Shared/autenticacao.service'
+import { RouterModule, Router } from '@angular/router'
 
+import { ROUTES } from './app.routes'
 import { AppComponent } from './app.component';
-import { AcessoComponentComponent } from './Acesso/AcessoComponent/acesso-component/acesso-component.component'
-import { BannerComponentComponent } from './Acesso/AcessoComponent/Banner/banner-component/banner-component.component';
-import { LoginComponentComponent } from './Acesso/AcessoComponent/Login/login-component/login-component.component';
-import { CadastroComponentComponent } from './Acesso/AcessoComponent/Cadastro/cadastro-component/cadastro-component.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AcessoComponent } from './Acesso/acesso-component/acesso-component.component'
+import { BannerComponentComponent } from './Acesso/Banner/banner-component/banner-component.component';
+import { LoginComponentComponent } from './Acesso/Login/login-component/login-component.component';
+import { CadastroComponentComponent } from './Acesso/Cadastro/cadastro-component/cadastro-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './Home/home/home.component';
+import { PublicacoesComponent } from './Home/publicacoes/publicacoes.component'
+import { AutenticacaoGaurd } from './autenticacao-guard.servie';
+
 @NgModule({
   declarations: [
     AppComponent,
-    AcessoComponentComponent,
+    AcessoComponent,
     BannerComponentComponent,
     LoginComponentComponent,
-    CadastroComponentComponent
+    CadastroComponentComponent,
+    HomeComponent,
+    PublicacoesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [Autenticacao],
+  providers: [Autenticacao, AutenticacaoGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

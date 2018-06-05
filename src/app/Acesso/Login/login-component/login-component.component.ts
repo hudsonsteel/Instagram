@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms'
+import { Autenticacao } from '../../Shared/autenticacao.service';
 
 @Component({
   selector: 'app-login-component',
@@ -16,7 +17,7 @@ export class LoginComponentComponent implements OnInit {
     'senha': new FormControl(null)
   })
 
-  constructor() { }
+  constructor(private autenticacao: Autenticacao) { }
 
   ngOnInit() {
     // console.log('LoginComponentComponent - ngOnInit', this.cadastro)
@@ -27,5 +28,13 @@ export class LoginComponentComponent implements OnInit {
 :void     */
   public exibirPainelCadastro(): void {
     this.exibirPainel.emit(true)
+  }
+
+  public autenticar():void{
+    console.log(this.formulario)
+    this.autenticacao.autenticar(
+      this.formulario.value.email,
+      this.formulario.value.senha
+    )
   }
 }

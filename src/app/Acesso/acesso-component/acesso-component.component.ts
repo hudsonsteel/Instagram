@@ -18,7 +18,7 @@ import { EventEmitter } from 'protractor';
       state('criado', style({ opacity: 1 })),
       transition('void => criado', [
         style({ opacity: 0, transform: 'translate(70px, 0px)' }),
-        animate('1.5s 1s ease-in-out', keyframes([
+        animate('1.2s 1s ease-in-out', keyframes([
           style({ offset: 0.80, opacity: 1, transform: 'translateX(0)' }),
           style({ offset: 0.90, opacity: 1, transform: 'translateY(20px)' }),
           style({ offset: 0.91, opacity: 1, transform: 'translateY(-20px)' }),
@@ -33,7 +33,7 @@ import { EventEmitter } from 'protractor';
     ])
   ]
 })
-export class AcessoComponentComponent implements OnInit {
+export class AcessoComponent implements OnInit {
   public estadoBanner: string = 'criado'
   public estadoPainel: string = 'criado'
   public cadastro: boolean = true
