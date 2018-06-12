@@ -14,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './Home/home/home.component';
 import { PublicacoesComponent } from './Home/publicacoes/publicacoes.component'
 import { AutenticacaoGaurd } from './autenticacao-guard.servie';
+import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-publicacao.component';
+import { Bd } from './bd.service';
+import { Progresso } from './progresso.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { AutenticacaoGaurd } from './autenticacao-guard.servie';
     LoginComponentComponent,
     CadastroComponentComponent,
     HomeComponent,
-    PublicacoesComponent
+    PublicacoesComponent,
+    IncluirPublicacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ import { AutenticacaoGaurd } from './autenticacao-guard.servie';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [Autenticacao, AutenticacaoGaurd],
+  providers: [Autenticacao, Bd, Progresso, AutenticacaoGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
